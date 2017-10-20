@@ -18,7 +18,7 @@ namespace Airport.Transports
         public int Consumption { get; private set; }
 
         public int Weight { get; private set; }
-
+        //creates transport
         public Transport(string mark, string model, int issueYear, int consumption, int weight)
         {
             Mark = mark;
