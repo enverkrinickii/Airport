@@ -8,6 +8,6 @@ namespace Airport.Interfaces
 {
     interface ISpendable
     {
-        double GetConsumption(int consumption);
+        double GetConsumption();
     }
 }

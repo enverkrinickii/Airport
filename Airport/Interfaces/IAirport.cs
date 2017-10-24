@@ -8,6 +8,6 @@ namespace Airport.Interfaces
 {
     interface IAirport
     {
-        void AddToList(IAirport airport);
+        void AddToList(IAirport airport, List<IAirport> myAirport);
     }
 }

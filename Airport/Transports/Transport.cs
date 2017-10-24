@@ -18,7 +18,7 @@ namespace Airport.Transports
         public int Consumption { get; private set; }
 
         public int Weight { get; private set; }
-        //creates transport
+        
         public Transport(string mark, string model, int issueYear, int consumption, int weight)
         {
             Mark = mark;
@@ -28,14 +28,14 @@ namespace Airport.Transports
             Weight = weight;
         }
 
-        public double GetConsumption(int consumption)
+        public double GetConsumption()
         {
             return Consumption * Weight / 365;
         }
 
-        public void AddToList(IAirport airport)
+        public void AddToList(IAirport airport, List<IAirport> myAirport)
         {
-            throw new NotImplementedException();
+            myAirport.Add(airport);
         }
     }
 }

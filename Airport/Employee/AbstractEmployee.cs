@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Airport.Interfaces;
 
 namespace Airport.Employee
 {
-    abstract class AbstractEmployee
+    abstract class AbstractEmployee : IAirport, IComparable
     {
         public string Name { get; private set; }
 
@@ -25,5 +26,27 @@ namespace Airport.Employee
             Age = age;
             Status = status;
         }
+
+        public void AddToList(IAirport airport, List<IAirport> myAirport)
+        {
+            myAirport.Add(airport);
+        }
+
+        public int CompareTo(Object obj)
+        {
+            if (obj is AbstractEmployee)
+            {
+                if (this.Status > (AbstractEmployee) obj.Status)
+                    return 1;
+                if (this.Status < (AbstractEmployee) obj.Status)
+                    return -1;
+                else return 0;
+            }
+            else
+            {
+                throw new Exception("Wrong object type");
+            }
+        }
+
     }
 }
