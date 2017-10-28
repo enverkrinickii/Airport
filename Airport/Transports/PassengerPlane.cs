@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Airport.Transports
 {
-    class PassengerPlane : Transport
+    class PassengerPlane : AbstractTransport
     {
         public int MaxPassengerCount { get; private set; }
 
@@ -14,19 +14,6 @@ namespace Airport.Transports
             : base(mark, model, issueYear, consumption, weight)
         {
             MaxPassengerCount = maxPassengerCount;
-        }
-
-        public int GetMaxPassengerCount(List<Transport> transports)
-        {
-            int sum = 0;
-            foreach (var transport in transports)
-            {
-                if (transport is PassengerPlane)
-                {
-                    sum += this.MaxPassengerCount;
-                }
-            }
-            return sum;
         }
 
         public override string ToString()

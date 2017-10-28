@@ -1,6 +1,6 @@
 ﻿namespace Airport.Transports
 {
-    class Autocar : Transport
+    class Autocar : AbstractTransport
     {
         public int MaxBaggage { get; private set; }
 

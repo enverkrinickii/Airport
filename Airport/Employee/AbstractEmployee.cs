@@ -15,7 +15,7 @@ namespace Airport.Employee
 
         public int Age { get; private set; }
 
-        public int Status { get; private set; }
+        public int Status { get; set; }
 
         public int Salary => Status * 1000;
 

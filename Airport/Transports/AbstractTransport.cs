@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Airport.Transports
 {
-    abstract class Transport : ISpendable, IComparable<Transport>
+    public abstract class AbstractTransport : ISpendable, IComparable<AbstractTransport>
     {
         public string Mark { get; private set; }
 
@@ -19,7 +19,7 @@ namespace Airport.Transports
 
         public int Weight { get; private set; }
         
-        public Transport(string mark, string model, int issueYear, int consumption, int weight)
+        public AbstractTransport(string mark, string model, int issueYear, int consumption, int weight)
         {
             Mark = mark;
             Model = model;
@@ -33,9 +33,9 @@ namespace Airport.Transports
             return Consumption * Weight / 365;
         }
 
-        public int CompareTo(Transport obj)
+        public int CompareTo(AbstractTransport obj)
         {
-            if (obj is Transport)
+            if (obj is AbstractTransport)
             {
                 if (this.Consumption > obj.Consumption)
                     return 1;
