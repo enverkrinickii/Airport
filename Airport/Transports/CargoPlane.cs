@@ -29,5 +29,10 @@ namespace Airport.Transports
             }
             return sum;
         }
+
+        public override string ToString()
+        {
+            return $"Марка: {this.Mark}, Модель: {this.Model}, Год выпуска: {this.IssueYear}, Расход топлива на 1000км: {this.Consumption}, Масса(т): {this.Weight}, Грузоподъемность: {this.MaxLoad}";
+        }
     }
 }

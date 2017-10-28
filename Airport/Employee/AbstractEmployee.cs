@@ -7,7 +7,7 @@ using Airport.Interfaces;
 
 namespace Airport.Employee
 {
-    abstract class AbstractEmployee : IAirport, IComparable
+    abstract class AbstractEmployee : IComparable<AbstractEmployee>
     {
         public string Name { get; private set; }
 
@@ -27,18 +27,13 @@ namespace Airport.Employee
             Status = status;
         }
 
-        public void AddToList(IAirport airport, List<IAirport> myAirport)
-        {
-            myAirport.Add(airport);
-        }
-
-        public int CompareTo(Object obj)
+        public int CompareTo(AbstractEmployee obj)
         {
             if (obj is AbstractEmployee)
             {
-                if (this.Status > (AbstractEmployee) obj.Status)
+                if (this.Status > obj.Status)
                     return 1;
-                if (this.Status < (AbstractEmployee) obj.Status)
+                if (this.Status < obj.Status)
                     return -1;
                 else return 0;
             }

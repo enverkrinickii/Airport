@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Airport.Transports
 {
-    abstract class Transport : ISpendable, IAirport
+    abstract class Transport : ISpendable, IComparable<Transport>
     {
         public string Mark { get; private set; }
 
@@ -33,9 +33,25 @@ namespace Airport.Transports
             return Consumption * Weight / 365;
         }
 
-        public void AddToList(IAirport airport, List<IAirport> myAirport)
+        public int CompareTo(Transport obj)
         {
-            myAirport.Add(airport);
+            if (obj is Transport)
+            {
+                if (this.Consumption > obj.Consumption)
+                    return 1;
+                if (this.Consumption < obj.Consumption)
+                    return -1;
+                else return 0;
+            }
+            else
+            {
+                throw new Exception("Wrong object type");
+            }
+        }
+
+        public override string ToString()
+        {
+            return $"";
         }
     }
 }
