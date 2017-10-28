@@ -28,6 +28,8 @@ namespace Airport
             myAirPort.AddTransport(cargoPlane1);
             myAirPort.AddTransport(cargoPlane2);
 
+            myAirPort.PrintTransports();
+
             myAirPort.SortTransports();
 
             int generalPassengerCount = myAirPort.GetGeneralMaxPassengerCount();
