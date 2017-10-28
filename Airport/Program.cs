@@ -16,7 +16,6 @@ namespace Airport
         {
             MyAirPort myAirPort = new MyAirPort();
            
-            List<AbstractTransport> myTransports = new List<AbstractTransport>();
             AbstractTransport passengerPlane1 = new PassengerPlane("Boing", "777", 1996, 1600, 315, 305);
             AbstractTransport passengerPlane2 = new PassengerPlane("Boing", "737", 2003, 1550, 300, 400);
             AbstractTransport passengerPlane3 = new PassengerPlane("Boing", "747", 2005, 1500, 298, 403);
