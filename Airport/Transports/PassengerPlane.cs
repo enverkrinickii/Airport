@@ -15,5 +15,18 @@ namespace Airport.Transports
         {
             MaxPassengerCount = maxPassengerCount;
         }
+
+        public int GetMaxPassengerCount(List<Transport> transports)
+        {
+            int sum = 0;
+            foreach (var transport in transports)
+            {
+                if (transport is PassengerPlane)
+                {
+                    sum += this.MaxPassengerCount;
+                }
+            }
+            return sum;
+        }
     }
 }
