@@ -73,13 +73,19 @@ namespace Airport.MyAirport
 
         public void FindPlane(int min, int max)
         {
+            bool isExist = false;
             foreach (var transport in myTransports)
             {
                 if (transport.Consumption >= min && transport.Consumption <= max)
                 {
+                    isExist = true;
                     Console.WriteLine(transport.Mark + " " + transport.Model);
                 }
 
+            }
+            if (!isExist)
+            {
+                Console.WriteLine("Самолетов по заданным критериям не найдено!");
             }
         }
     }

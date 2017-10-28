@@ -53,13 +53,16 @@ namespace Airport
             myAirPort.AddEmployee(accountant);
 
             myAirPort.PrintEmployees();
+            while (true)
+            {
+                Console.WriteLine("Введите верхний диапозон расхода топлива");
+                int max = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Введите нижний диапозон расхода топлива");
+                int min = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Введите верхний диапозон расхода топлива");
-            int max = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите нижний диапозон расхода топлива");
-            int min = Convert.ToInt32(Console.ReadLine());
-
-            myAirPort.FindPlane(min, max);
+                myAirPort.FindPlane(min, max);
+            }
+            
 
             Console.ReadKey();
             
