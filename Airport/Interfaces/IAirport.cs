@@ -9,7 +9,7 @@ namespace Airport.Interfaces
         void AddTransport(AbstractTransport transport);
         void AddEmployee(AbstractEmployee employee);
         int GetGeneralMaxPassengerCount();
-        int getGeneralMaxLoad();
+        int GetGeneralMaxLoad();
         //void PrintTransports();
         //void PrintEmployees();
         void SortTransports();

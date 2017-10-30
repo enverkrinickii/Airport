@@ -38,7 +38,7 @@ namespace Airport.MyAirport
             return sum;
         }
 
-        public int getGeneralMaxLoad()
+        public int GetGeneralMaxLoad()
         {
             int sum = 0;
             foreach (var transport in MyTransports)

@@ -34,7 +34,7 @@ namespace Airport
             myAirPort.DeserializeTransports();
 
             int generalPassengerCount = myAirPort.GetGeneralMaxPassengerCount();
-            int generalLoad = myAirPort.getGeneralMaxLoad();
+            int generalLoad = myAirPort.GetGeneralMaxLoad();
 
             //myAirPort.PrintTransports();
 
@@ -66,7 +66,6 @@ namespace Airport
                 myAirPort.FindPlane(min, max);
             }
             
-
             Console.ReadKey();
             
             
