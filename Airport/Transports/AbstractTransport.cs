@@ -1,14 +1,10 @@
 ﻿using Airport.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Airport.Transports
 {
     [Serializable]
-    public abstract class AbstractTransport : ISpendable, IComparable<AbstractTransport>
+    public abstract class AbstractTransport : IComparable<AbstractTransport>
     {
         public string Mark { get; private set; }
 
@@ -29,11 +25,6 @@ namespace Airport.Transports
             Weight = weight;
         }
 
-        public double GetConsumption()
-        {
-            return Consumption * Weight / 365;
-        }
-
         public int CompareTo(AbstractTransport obj)
         {
             if (obj is AbstractTransport)
@@ -50,9 +41,5 @@ namespace Airport.Transports
             }
         }
 
-        public override string ToString()
-        {
-            return $"";
-        }
     }
 }

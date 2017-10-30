@@ -67,7 +67,6 @@
   <ItemGroup>
     <Compile Include="Employee\AbstractEmployee.cs" />
     <Compile Include="Interfaces\IAirport.cs" />
-    <Compile Include="Interfaces\ISpendable.cs" />
     <Compile Include="MyAirPort\MyAirPort.cs" />
     <Compile Include="Transports\Autocar.cs" />
     <Compile Include="Employee\Manager.cs" />

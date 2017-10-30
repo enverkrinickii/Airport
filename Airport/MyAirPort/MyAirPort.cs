@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Airport.Employee;
 using Airport.Interfaces;
 using Airport.Transports;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Xml.Serialization;
 
 namespace Airport.MyAirport
 {
@@ -16,9 +12,6 @@ namespace Airport.MyAirport
     {
         List<AbstractTransport> MyTransports = new List<AbstractTransport>();
         List<AbstractEmployee> MyEmployees = new List<AbstractEmployee>();
-
-        XmlSerializer FormatterEmployee = new XmlSerializer(typeof(List<AbstractEmployee>));
-        XmlSerializer FormatterTransport = new XmlSerializer(typeof(List<AbstractTransport>));
 
         BinaryFormatter formatter = new BinaryFormatter();
 
