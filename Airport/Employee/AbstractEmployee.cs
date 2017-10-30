@@ -7,7 +7,8 @@ using Airport.Interfaces;
 
 namespace Airport.Employee
 {
-    abstract class AbstractEmployee : IComparable<AbstractEmployee>
+    [Serializable]
+    public abstract class AbstractEmployee : IComparable<AbstractEmployee>
     {
         public string Name { get; private set; }
 

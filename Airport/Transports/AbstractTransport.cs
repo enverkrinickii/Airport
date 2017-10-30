@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Airport.Transports
 {
+    [Serializable]
     public abstract class AbstractTransport : ISpendable, IComparable<AbstractTransport>
     {
         public string Mark { get; private set; }

@@ -6,28 +6,36 @@ using System.Threading.Tasks;
 using Airport.Employee;
 using Airport.Interfaces;
 using Airport.Transports;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
 
 namespace Airport.MyAirport
 {
     class MyAirPort : IAirport
     {
-        List<AbstractTransport> myTransports = new List<AbstractTransport>();
-        List<AbstractEmployee> myEmployees = new List<AbstractEmployee>();
+        List<AbstractTransport> MyTransports = new List<AbstractTransport>();
+        List<AbstractEmployee> MyEmployees = new List<AbstractEmployee>();
+
+        XmlSerializer FormatterEmployee = new XmlSerializer(typeof(List<AbstractEmployee>));
+        XmlSerializer FormatterTransport = new XmlSerializer(typeof(List<AbstractTransport>));
+
+        BinaryFormatter formatter = new BinaryFormatter();
 
         public void AddTransport(AbstractTransport transport)
         {
-            myTransports.Add(transport);
+            MyTransports.Add(transport);
         }
 
         public void AddEmployee(AbstractEmployee employee)
         {
-            myEmployees.Add(employee);
+            MyEmployees.Add(employee);
         }
 
         public int GetGeneralMaxPassengerCount()
         {
             int sum = 0;
-            foreach (var transport in myTransports)
+            foreach (var transport in MyTransports)
             {
                 if (transport is PassengerPlane)
                 {
@@ -40,7 +48,7 @@ namespace Airport.MyAirport
         public int getGeneralMaxLoad()
         {
             int sum = 0;
-            foreach (var transport in myTransports)
+            foreach (var transport in MyTransports)
             {
                 if (transport is CargoPlane)
                 {
@@ -50,17 +58,17 @@ namespace Airport.MyAirport
             return sum;
         }
 
-        public void PrintTransports()
+        private void PrintTransports(List<AbstractTransport> transports)
         {
-            foreach (var transport in myTransports)
+            foreach (var transport in transports)
             {
                 Console.WriteLine(transport.ToString());
             }
         }
 
-        public void PrintEmployees()
+        private void PrintEmployees(List<AbstractEmployee> employees)
         {
-            foreach (var employee in myEmployees)
+            foreach (var employee in employees)
             {
                 Console.WriteLine(employee.ToString());
             }
@@ -68,13 +76,13 @@ namespace Airport.MyAirport
 
         public void SortTransports()
         {
-            myTransports.Sort();
+            MyTransports.Sort();
         }
 
         public void FindPlane(int min, int max)
         {
             bool isExist = false;
-            foreach (var transport in myTransports)
+            foreach (var transport in MyTransports)
             {
                 if (transport.Consumption >= min && transport.Consumption <= max)
                 {
@@ -86,6 +94,42 @@ namespace Airport.MyAirport
             if (!isExist)
             {
                 Console.WriteLine("Самолетов по заданным критериям не найдено!");
+            }
+        }
+
+        public void SerializeEmpoyee()
+        {
+            using (FileStream fs = new FileStream("employees.bin", FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, MyEmployees);
+            }
+        }
+
+        public void SerializeTransport()
+        {
+            using (FileStream fs = new FileStream("transports.bin", FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, MyTransports);
+            }
+        }
+
+        public void DeserializeEmployee()
+        {
+            using (FileStream fs = new FileStream("employees.bin", FileMode.OpenOrCreate))
+            {
+                List<AbstractEmployee> employees = (List<AbstractEmployee>)formatter.Deserialize(fs);
+
+                PrintEmployees(employees);
+            }
+        }
+
+        public void DeserializeTransports()
+        {
+            using (FileStream fs = new FileStream("transports.bin", FileMode.OpenOrCreate))
+            {
+                List<AbstractTransport> transports = (List<AbstractTransport>)formatter.Deserialize(fs);
+
+                PrintTransports(transports);
             }
         }
     }

@@ -28,14 +28,20 @@ namespace Airport
             myAirPort.AddTransport(cargoPlane1);
             myAirPort.AddTransport(cargoPlane2);
 
-            myAirPort.PrintTransports();
+            myAirPort.SerializeTransport();
+            myAirPort.DeserializeTransports();
+
+            //myAirPort.PrintTransports();
 
             myAirPort.SortTransports();
+
+            myAirPort.SerializeTransport();
+            myAirPort.DeserializeTransports();
 
             int generalPassengerCount = myAirPort.GetGeneralMaxPassengerCount();
             int generalLoad = myAirPort.getGeneralMaxLoad();
 
-            myAirPort.PrintTransports();
+            //myAirPort.PrintTransports();
 
             Console.WriteLine($"Общее количество пассажиров во всех самолетах(чел): {generalPassengerCount}");
             Console.WriteLine($"Общая грузоподъемность(т): {generalLoad}");
@@ -52,7 +58,9 @@ namespace Airport
             myAirPort.AddEmployee(security);
             myAirPort.AddEmployee(accountant);
 
-            myAirPort.PrintEmployees();
+            myAirPort.SerializeEmpoyee();
+            myAirPort.DeserializeEmployee();
+            //myAirPort.PrintEmployees();
             while (true)
             {
                 Console.WriteLine("Введите верхний диапозон расхода топлива");

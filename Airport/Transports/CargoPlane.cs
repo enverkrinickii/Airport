@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Airport.Transports
 {
+    [Serializable]
     class CargoPlane : AbstractTransport
     {
         public int MaxLoad { get; private set; }

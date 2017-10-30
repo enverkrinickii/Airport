@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Airport.Employee
 {
+    [Serializable]
     class Manager : AbstractEmployee
     {
         public Manager(string name, string secondName, int age, int status) 

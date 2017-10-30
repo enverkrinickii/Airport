@@ -1,5 +1,8 @@
-﻿namespace Airport.Transports
+﻿using System;
+
+namespace Airport.Transports
 {
+    [Serializable]
     class Autocar : AbstractTransport
     {
         public int MaxBaggage { get; private set; }
